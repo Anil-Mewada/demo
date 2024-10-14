@@ -14,7 +14,7 @@ jobs:
 
       - name: Copy index.html to Nginx directory
         run: |
-          sudo cp *  /usr/local/var/www/
+           cp *  /usr/local/var/www/
       - name: Restart Nginx
         run: |
           brew services restart nginx
