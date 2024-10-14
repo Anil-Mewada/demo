@@ -7,18 +7,14 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Copy index.html to Nginx directory
         run: |
-          sudo cp *  /var/www/html/
+          sudo cp *  /usr/local/var/www/
       - name: Restart Nginx
         run: |
-          sudo service nginx restart
-
-      - name: Verify Nginx status
-        run: |
-          sudo service nginx status
+          brew services restart nginx
